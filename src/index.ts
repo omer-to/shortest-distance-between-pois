@@ -1,5 +1,8 @@
 import http from 'http'
 
+import { Graph } from './Graph'
+import type { Poi } from './typings'
+
 const port = 4000
 http.get(`http://localhost:${port}`, res => {
       let pois = ''
@@ -7,6 +10,9 @@ http.get(`http://localhost:${port}`, res => {
             pois += chunk.toString()
       })
       res.on('end', () => {
-            console.log(JSON.parse(pois))
+            const poisArr = JSON.parse(pois) as Poi[]
+            const graph = new Graph(poisArr, 0)
+            const shortestPath = graph.findShortestPath()
+            console.log(shortestPath)
       })
 })
