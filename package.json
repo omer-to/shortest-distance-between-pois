@@ -4,7 +4,8 @@
   "description": "Finds the shortest route that visits all nodes using brute force and shortest next distance.",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
