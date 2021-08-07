@@ -19,7 +19,7 @@ if (process.argv[2]) {
 
 /**
  * 
- * @throws RangeError if the provided value is `undefined` for the given data.
+ * @throws RangeError if the provided value is not between 0 and 9.
  */
 function getSourceIndex(cliIndexOption: string) {
       const _cliIndexOption = Number(cliIndexOption)
