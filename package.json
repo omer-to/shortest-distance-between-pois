@@ -4,7 +4,7 @@
   "description": "Finds the shortest route that visits all nodes using brute force and shortest next distance.",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "ts-node src/index.ts",
     "compile": "tsc -p tsconfig.json"
   },
@@ -22,7 +22,7 @@
     "@types/jest": "^26.0.24",
     "@types/node": "^14.17.3",
     "jest": "^26.0.1",
-    "ts-jest": "^27.0.4",
+    "ts-jest": "^26.5.6",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   }
