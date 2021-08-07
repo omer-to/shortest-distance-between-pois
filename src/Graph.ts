@@ -25,4 +25,10 @@ export class Graph {
                   return currentClosestPoi
             }, { distance: Infinity } as IndexedTarget)
       }
+
+      private visitNextClosestPoi(nextPoiWithIndex: IndexedTarget) {
+            const { index, ...nextPoi } = nextPoiWithIndex
+            this.visited.push(nextPoi)
+            this.unvisited.splice(index, 1)
+      }
 }
