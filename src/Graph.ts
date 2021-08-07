@@ -16,6 +16,17 @@ export class Graph {
             this.calculateDistance = calculateDistance || HaversineCalculator.distanceBetween
       }
 
+      findShortestPath(): Poi[] {
+            const source = this.visited[this.visited.length - 1]
+            const nextClosestPoi = this.findNextClosestPoi(source)
+            this.visitNextClosestPoi(nextClosestPoi)
+            if (this.unvisited.length) {
+                  return this.findShortestPath()
+            } else {
+                  return this.visited
+            }
+      }
+
       private findNextClosestPoi(source: Poi): IndexedTarget {
             return this.unvisited.reduce<IndexedTarget>((currentClosestPoi, candidatePoi, index) => {
                   const distance = this.calculateDistance(source, candidatePoi)
