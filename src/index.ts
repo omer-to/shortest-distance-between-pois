@@ -3,6 +3,32 @@ import http from 'http'
 import { Graph } from './Graph'
 import type { Poi } from './typings'
 
+/**
+ * The index of the Poi to use as the starting location.
+ * Defaults to zero if the option is not provided, or cannot be converted to valid number.
+ */
+let sourceIndex = 0
+
+if (process.argv[2]) {
+      if (process.argv[3]) {
+            getSourceIndex(process.argv[3])
+      }
+      const [, cliIndexOption] = process.argv[2].split('=')
+      getSourceIndex(cliIndexOption)
+}
+
+/**
+ * 
+ * @throws RangeError if the provided value is `undefined` for the given data.
+ */
+function getSourceIndex(cliIndexOption: string) {
+      const _cliIndexOption = Number(cliIndexOption)
+      if (!Number.isNaN(_cliIndexOption)) {
+            if (_cliIndexOption < 0 || _cliIndexOption > 9) throw new RangeError('sourceIndex must be between 0 and 9')
+            sourceIndex = _cliIndexOption
+      }
+}
+
 const port = 4000
 http.get(`http://localhost:${port}`, res => {
       let pois = ''
@@ -11,7 +37,7 @@ http.get(`http://localhost:${port}`, res => {
       })
       res.on('end', () => {
             const poisArr = JSON.parse(pois) as Poi[]
-            const graph = new Graph(poisArr, 0)
+            const graph = new Graph(poisArr, sourceIndex)
             const shortestPath = graph.findShortestPath()
             console.log(shortestPath)
       })
