@@ -15,3 +15,8 @@ export interface Point {
 export interface Poi extends Point { // or type Poi = { poiName: string } & Point
       poiName: string
 }
+
+/**
+ * The signature to be a function that calculates the distance between two locations
+ */
+export type DistanceCalculator = (source: Point, destination: Point) => number
