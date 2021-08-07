@@ -8,7 +8,7 @@ import type { Poi, DistanceCalculator } from './typings'
  * @param start The origin Poi to start with
  * @returns A tuple of permutations, and distances
  */
-export function getPermutations(arr: Poi[], start: Poi, calculateDistance: DistanceCalculator = HaversineCalculator.distanceBetween): [Poi[][], number[]] {
+export function getPermutations(arr: Poi[], start: Poi, calculateDistance: DistanceCalculator): [Poi[][], number[]] {
       const permutations: Poi[][] = []
       const distances: number[] = []
       /**
