@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/omer-to/shortest-distance-between-pois/issues"
   },
-  "homepage": "https://github.com/omer-to/shortest-distance-between-pois#readme"
+  "homepage": "https://github.com/omer-to/shortest-distance-between-pois#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
