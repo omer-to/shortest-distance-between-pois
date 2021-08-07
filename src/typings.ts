@@ -11,3 +11,7 @@ export interface Point {
        */
       longitude: number
 }
+
+export interface Poi extends Point { // or type Poi = { poiName: string } & Point
+      poiName: string
+}
