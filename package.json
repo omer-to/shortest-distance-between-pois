@@ -1,0 +1,19 @@
+{
+  "name": "shortest-distance-between-pois",
+  "version": "1.0.0",
+  "description": "Finds the shortest route that visits all nodes using brute force and shortest next distance.",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omer-to/shortest-distance-between-pois.git"
+  },
+  "author": "Ömer Toraman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omer-to/shortest-distance-between-pois/issues"
+  },
+  "homepage": "https://github.com/omer-to/shortest-distance-between-pois#readme"
+}
