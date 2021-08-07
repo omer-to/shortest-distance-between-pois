@@ -1,4 +1,3 @@
-import { HaversineCalculator } from './HaversineCalculator'
 import type { Poi, DistanceCalculator } from './typings'
 
 
