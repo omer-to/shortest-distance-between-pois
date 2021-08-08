@@ -1,0 +1,3 @@
+[submodule "backend"]
+	path = backend
+	url = https://gitlab.com/martitech-public/backend-assessment.git
