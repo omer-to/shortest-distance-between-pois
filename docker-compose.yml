@@ -2,9 +2,11 @@ version: "3"
 services:
   client:
     image: client:latest
+    container_name: CLIENT
     depends_on:
       - backend
   backend:
     image: marti:latest
+    container_name: BACKEND
     ports:
       - "4000:4000"
