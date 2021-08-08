@@ -46,6 +46,8 @@ http.get(`http://localhost:${port}`, res => {
                   [shortestPath, dist] = graph.findShortestPath()
             await outputResult(graph.findShortestPath.name, shortestPath, dist)
 
+            console.log('============================================')
+
             const [shortestRoute, distance] = findShortestAmongAllRoutes(poisArr, sourceIndex)
             await outputResult(findShortestAmongAllRoutes.name, shortestRoute, distance)
       })
