@@ -1,6 +1,8 @@
 import http from 'http'
 
+import { outputResult } from './outputResult'
 import { Graph } from './Graph'
+import { findShortestAmongAllRoutes } from './findShortestAmongAllRoutes'
 import type { Poi } from './typings'
 
 
@@ -37,10 +39,15 @@ http.get(`http://localhost:${port}`, res => {
       res.on('data', (chunk: Buffer) => {
             pois += chunk.toString()
       })
-      res.on('end', () => {
+      res.on('end', async () => {
             const poisArr = JSON.parse(pois) as Poi[]
-            const graph = new Graph(poisArr, sourceIndex)
-            const shortestPath = graph.findShortestPath()
-            console.log(shortestPath)
+
+            const graph = new Graph(poisArr, sourceIndex),
+                  [shortestPath, dist] = graph.findShortestPath()
+            await outputResult(graph.findShortestPath.name, shortestPath, dist)
+
+            const [shortestRoute, distance] = findShortestAmongAllRoutes(poisArr, sourceIndex)
+            await outputResult(findShortestAmongAllRoutes.name, shortestRoute, distance)
       })
 })
+
