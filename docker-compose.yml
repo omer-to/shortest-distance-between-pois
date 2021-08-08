@@ -1,0 +1,10 @@
+version: "3"
+services:
+  client:
+    image: client:latest
+    depends_on:
+      - backend
+  backend:
+    image: marti:latest
+    ports:
+      - "4000:4000"
