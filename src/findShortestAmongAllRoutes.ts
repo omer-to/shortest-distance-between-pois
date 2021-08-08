@@ -1,9 +1,9 @@
 import { HaversineCalculator } from './HaversineCalculator'
 import { getPermutations } from './getPermutations'
 
-import type { Poi, DistanceCalculator } from './typings'
+import type { Poi, DistanceCalculator, RouteAndDistance } from './typings'
 
-export function findShortestAmongAllRoutes(pois: Poi[], sourceIndex: number, calculateDistance: DistanceCalculator = HaversineCalculator.distanceBetween): [Poi[], number] {
+export function findShortestAmongAllRoutes(pois: Poi[], sourceIndex: number, calculateDistance: DistanceCalculator = HaversineCalculator.distanceBetween): RouteAndDistance {
       const arr = pois.slice(0, sourceIndex).concat(pois.slice(sourceIndex + 1)) // Exclude the starting point and make a shallow copy
       const start = pois[sourceIndex]
 

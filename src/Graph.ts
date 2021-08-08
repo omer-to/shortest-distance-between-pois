@@ -1,9 +1,10 @@
 import { HaversineCalculator } from './HaversineCalculator'
 
-import type { Poi, Point, DistanceCalculator } from './typings'
+import type { Poi, DistanceCalculator, RouteAndDistance } from './typings'
 
 type IndexedTarget = Poi & { distance: number, index: number }
 export class Graph {
+      private totalDistance = 0
       private nodes: Poi[]
       private visited: Poi[]
       private unvisited: Poi[]
@@ -16,14 +17,14 @@ export class Graph {
             this.calculateDistance = calculateDistance || HaversineCalculator.distanceBetween
       }
 
-      findShortestPath(): Poi[] {
+      findShortestPath(): RouteAndDistance {
             const source = this.visited[this.visited.length - 1]
             const nextClosestPoi = this.findNextClosestPoi(source)
             this.visitNextClosestPoi(nextClosestPoi)
             if (this.unvisited.length) {
                   return this.findShortestPath()
             } else {
-                  return this.visited
+                  return [this.visited, this.totalDistance]
             }
       }
 
@@ -38,7 +39,8 @@ export class Graph {
       }
 
       private visitNextClosestPoi(nextPoiWithIndex: IndexedTarget) {
-            const { index, ...nextPoi } = nextPoiWithIndex
+            const { index, distance, ...nextPoi } = nextPoiWithIndex
+            this.totalDistance += distance
             this.visited.push(nextPoi)
             this.unvisited.splice(index, 1)
       }
