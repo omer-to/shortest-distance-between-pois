@@ -2,9 +2,9 @@
 Clone the repository, navgiate to the project root, and install dependencies.
 It will compile TypeScript files into JavaScript in `postInstall` hook.
 
-Navigate to the project root, and run the following command to build the Docker image from the GitLab repository:
+Navigate to the project root, and run the following command to build the Docker image from the GitLab repository (might require root permission):
 ```sh
-sh scripts/build.sh
+sudo sh scripts/build.sh
 ```
 The command will create a new image tagged as `marti/latest`.
 
