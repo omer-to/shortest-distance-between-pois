@@ -1,4 +1,7 @@
 # Setup
+Clone the repository, navgiate to the project root, and install dependencies.
+It will compile TypeScript files into JavaScript in `postInstall` hook.
+
 Navigate to the project root, and run the following command to build the Docker image from the GitLab repository:
 ```sh
 sh scripts/build.sh
