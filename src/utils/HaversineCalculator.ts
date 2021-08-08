@@ -1,5 +1,5 @@
-import { decimalDegreesToRadians } from './utils/decimalDegreesToRadians'
-import type { Point } from './typings'
+import { decimalDegreesToRadians } from './decimalDegreesToRadians'
+import type { Point } from '../typings'
 
 export class HaversineCalculator {
       static earthRadiusInKm = 6371e3
