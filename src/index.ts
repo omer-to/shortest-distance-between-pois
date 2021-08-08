@@ -1,6 +1,6 @@
 import http from 'http'
 
-import { outputResult } from './outputResult'
+import { outputResult } from './utils/outputResult'
 import { Graph } from './Graph'
 import { findShortestAmongAllRoutes } from './findShortestAmongAllRoutes'
 import type { Poi } from './typings'

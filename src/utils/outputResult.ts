@@ -3,7 +3,7 @@ import { writeFile } from 'fs/promises'
 import chalk from 'chalk'
 
 import { ensureOutputDirectoryExists, outputDir } from './ensureOutputDirectoryExists'
-import type { Poi } from './typings'
+import type { Poi } from '../typings'
 
 
 /**

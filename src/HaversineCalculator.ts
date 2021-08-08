@@ -1,4 +1,4 @@
-import { decimalDegreesToRadians } from './decimalDegreesToRadians'
+import { decimalDegreesToRadians } from './utils/decimalDegreesToRadians'
 import type { Point } from './typings'
 
 export class HaversineCalculator {
