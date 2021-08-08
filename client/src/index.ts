@@ -5,8 +5,6 @@ import { Graph, findShortestAmongAllRoutes } from './solutions'
 import { ensureConnection } from './utils/ensureConnection'
 import type { Poi } from './typings'
 
-
-ensureConnection()
 /**
  * The index of the Poi to use as the starting location.
  * Defaults to zero if the option is not provided, or cannot be converted to valid number.
@@ -33,23 +31,27 @@ function getSourceIndex(cliIndexOption: string) {
       }
 }
 
-const port = process.env.PORT || 4000
-http.get(`http://localhost:${port}`, res => {
-      let pois = ''
-      res.on('data', (chunk: Buffer) => {
-            pois += chunk.toString()
+function main() {
+      const port = process.env.PORT || 4000
+      const serviceName = 'backend'
+      http.get(`http://${serviceName}:${port}`, res => {
+            let pois = ''
+            res.on('data', (chunk: Buffer) => {
+                  pois += chunk.toString()
+            })
+            res.on('end', async () => {
+                  const poisArr = JSON.parse(pois) as Poi[]
+
+                  const graph = new Graph(poisArr, sourceIndex),
+                        [shortestPath, dist] = graph.findShortestPath()
+                  await outputResult(graph.findShortestPath.name, shortestPath, dist)
+
+                  console.log('============================================')
+
+                  const [shortestRoute, distance] = findShortestAmongAllRoutes(poisArr, sourceIndex)
+                  await outputResult(findShortestAmongAllRoutes.name, shortestRoute, distance)
+            })
       })
-      res.on('end', async () => {
-            const poisArr = JSON.parse(pois) as Poi[]
+}
 
-            const graph = new Graph(poisArr, sourceIndex),
-                  [shortestPath, dist] = graph.findShortestPath()
-            await outputResult(graph.findShortestPath.name, shortestPath, dist)
-
-            console.log('============================================')
-
-            const [shortestRoute, distance] = findShortestAmongAllRoutes(poisArr, sourceIndex)
-            await outputResult(findShortestAmongAllRoutes.name, shortestRoute, distance)
-      })
-})
-
+ensureConnection(main)

@@ -7,9 +7,10 @@ let retryIntervalMS = 5000,
       maxRetry = 3;
 
 
-export function ensureConnection() {
+export function ensureConnection(main: () => void) {
       maxRetry -= 1
-      const socket = net.createConnection({ port: 4000 })
+
+      const socket = net.createConnection(4000, 'backend')
 
       socket.on('close', async (hadError) => {
 
@@ -19,9 +20,11 @@ export function ensureConnection() {
                         process.exit(1)
                   }
                   await sleep(retryIntervalMS)
-                  ensureConnection()
+                  console.log('Retrying connection.')
+                  ensureConnection(main)
             } else {
                   console.log('The connection is destroyed.')
+                  main()
             }
       })
 
