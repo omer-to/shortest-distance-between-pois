@@ -1,4 +1,4 @@
-import { decimalDegreesToRadians } from '../src/decimalDegreesToRadians'
+import { decimalDegreesToRadians } from '../src/utils/decimalDegreesToRadians'
 
 describe('Test Case for decimalDegreesToRadians function', () => {
       test('Positive decimal degrees should result in positive radians', () => {

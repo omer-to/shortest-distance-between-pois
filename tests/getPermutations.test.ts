@@ -1,5 +1,5 @@
-import { getPermutations } from '../src/getPermutations'
-import { HaversineCalculator } from '../src/HaversineCalculator'
+import { getPermutations } from '../src/solutions/all-routes/getPermutations'
+import { HaversineCalculator } from '../src/utils/HaversineCalculator'
 
 const start = {
       poiName: '1',

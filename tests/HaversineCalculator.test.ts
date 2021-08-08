@@ -1,4 +1,4 @@
-import { HaversineCalculator } from '../src/HaversineCalculator'
+import { HaversineCalculator } from '../src/utils/HaversineCalculator'
 
 describe('Unit Tests for HaversineCalculator.distanceBetween', () => {
       test('Should return zero for the same points', () => {
