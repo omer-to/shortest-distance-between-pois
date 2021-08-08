@@ -1,4 +1,4 @@
-import type { Poi, DistanceCalculator } from './typings'
+import type { Poi, DistanceCalculator } from '../../typings'
 
 
 /**

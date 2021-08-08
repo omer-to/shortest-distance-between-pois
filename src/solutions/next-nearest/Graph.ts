@@ -1,6 +1,6 @@
-import { HaversineCalculator } from './utils/HaversineCalculator'
+import { HaversineCalculator } from '../../utils/HaversineCalculator'
 
-import type { Poi, DistanceCalculator, RouteAndDistance } from './typings'
+import type { Poi, DistanceCalculator, RouteAndDistance } from '../../typings'
 
 type IndexedTarget = Poi & { distance: number, index: number }
 export class Graph {
