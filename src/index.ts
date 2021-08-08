@@ -3,6 +3,8 @@ import http from 'http'
 import { Graph } from './Graph'
 import type { Poi } from './typings'
 
+
+
 /**
  * The index of the Poi to use as the starting location.
  * Defaults to zero if the option is not provided, or cannot be converted to valid number.
@@ -29,7 +31,7 @@ function getSourceIndex(cliIndexOption: string) {
       }
 }
 
-const port = 4000
+const port = process.env.PORT || 4000
 http.get(`http://localhost:${port}`, res => {
       let pois = ''
       res.on('data', (chunk: Buffer) => {
