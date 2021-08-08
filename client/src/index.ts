@@ -2,10 +2,11 @@ import http from 'http'
 
 import { outputResult } from './utils/outputResult'
 import { Graph, findShortestAmongAllRoutes } from './solutions'
+import { ensureConnection } from './utils/ensureConnection'
 import type { Poi } from './typings'
 
 
-
+ensureConnection()
 /**
  * The index of the Poi to use as the starting location.
  * Defaults to zero if the option is not provided, or cannot be converted to valid number.
