@@ -22,9 +22,6 @@ export function findShortestAmongAllRoutes(pois: Poi[], sourceIndex: number, cal
       }
       const shortestRoute = permutations[shortestRouteIndex]
 
-      return {
-            shortestRoute,
-            shortestDistance
-      }
+      return [shortestRoute, shortestDistance]
 }
 
