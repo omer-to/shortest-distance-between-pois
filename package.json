@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "ts-node src/index.ts",
-    "compile": "tsc -p tsconfig.json"
+    "compile": "tsc -p tsconfig.json",
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
