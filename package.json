@@ -7,7 +7,8 @@
     "test": "jest",
     "dev": "ts-node src/index.ts",
     "compile": "tsc -p tsconfig.json",
-    "postinstall": "npm run compile"
+    "postinstall": "npm run compile",
+    "start": "node build/index.js"
   },
   "repository": {
     "type": "git",
