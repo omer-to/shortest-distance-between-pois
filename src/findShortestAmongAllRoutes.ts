@@ -3,7 +3,7 @@ import { getPermutations } from './getPermutations'
 
 import type { Poi, DistanceCalculator } from './typings'
 
-export function findShortestAmongAllRoutes(pois: Poi[], sourceIndex: number, calculateDistance: DistanceCalculator = HaversineCalculator.distanceBetween) {
+export function findShortestAmongAllRoutes(pois: Poi[], sourceIndex: number, calculateDistance: DistanceCalculator = HaversineCalculator.distanceBetween): [Poi[], number] {
       const arr = pois.slice(0, sourceIndex).concat(pois.slice(sourceIndex + 1)) // Exclude the starting point and make a shallow copy
       const start = pois[sourceIndex]
 
