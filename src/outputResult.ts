@@ -1,5 +1,6 @@
 import path from 'path'
 import { writeFile } from 'fs/promises'
+import chalk from 'chalk'
 
 import { ensureOutputDirectoryExists, outputDir } from './ensureOutputDirectoryExists'
 import type { Poi } from './typings'
@@ -13,17 +14,18 @@ import type { Poi } from './typings'
  * @param distance The total distance for the route
  */
 export async function outputResult(functionName: string, route: Poi[], distance: number) {
-
-      console.log(`The shortest route using ${functionName} function to find to the shortest path and total distance:`)
-      console.log(JSON.stringify(route, null, 2))
+      console.log(chalk.blueBright(`Using ${chalk.yellow(functionName)} function`))
+      console.log(`The shortest route to visit all locations:`)
+      console.log(chalk.green(JSON.stringify(route, null, 2)))
       console.log('The distance (in meters):')
-      console.log(distance)
+      console.log(chalk.green(distance))
 
       await ensureOutputDirectoryExists()
       const outputFile = path.join(outputDir, `./${functionName}.json`)
       await writeFile(outputFile, JSON.stringify({ route, distance }, null, 2))
-      console.log(`View the results in ${outputFile}`)
+      console.log(`View the results in ${chalk.blueBright(outputFile)}`)
 }
+
 
 
 
