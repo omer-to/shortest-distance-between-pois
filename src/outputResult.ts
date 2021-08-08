@@ -15,7 +15,7 @@ import type { Poi } from './typings'
 export async function outputResult(functionName: string, route: Poi[], distance: number) {
 
       console.log(`The shortest route using ${functionName} function to find to the shortest path and total distance:`)
-      console.log(route)
+      console.log(JSON.stringify(route, null, 2))
       console.log('The distance (in meters):')
       console.log(distance)
 
