@@ -1,7 +1,7 @@
 import path from 'path'
 import { mkdir } from 'fs/promises'
 
-export const outputDir = path.resolve(__dirname, '../output')
+export const outputDir = path.resolve(__dirname, '../../output')
 
 export async function ensureOutputDirectoryExists() {
       try {
