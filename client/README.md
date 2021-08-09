@@ -54,7 +54,7 @@ docker-compose up
 The [`ensureConnection`](./src/utils/ensureConnection.ts) function makes sure that the express app is up and running by attempting to create a socket connection to port 4000, so that the http request is only issues the server is ready to accept connections, though it could be implemented by a simple `setTimeout` call...
 # Solutions
 There are two ways that attempt to find the shortest route that visits all the places.
-1. Finding all possible routes:
+1. Finding all possible routes:[source code](./src/solutions/all-routes/findShortestAmongAllRoutes.ts)
    As we have total of 10 locations, one of which will always be the first place in all of the routes as it is the starting point, we therefore find all possible combinations that the remaining 9 locations can take by using permutation.
-2. Finding the next shortest route:
+2. Finding the next shortest route:[source code](./src/solutions/next-nearest/Graph.ts)
    Starting from a location, we simply move to the next closest location until there is no place left unvisited.
