@@ -1,1 +1,0 @@
-docker build https://gitlab.com/martitech-public/backend-assessment.git -t marti/latest
