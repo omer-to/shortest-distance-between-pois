@@ -51,7 +51,7 @@ Navigate back to the project root folder, and start the services:
 ```sh
 docker-compose up
 ```
-
+The [`ensureConnection`](./src/utils/ensureConnection.ts) function makes sure that the express app is up and running by attempting to create a socket connection to port 4000, so that the http request is only issues the server is ready to accept connections, though it could be implemented by a simple `setTimeout` call...
 # Solutions
 There are two ways that attempt to find the shortest route that visits all the places.
 1. Finding all possible routes:
